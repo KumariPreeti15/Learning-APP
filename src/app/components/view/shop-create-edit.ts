@@ -148,12 +148,8 @@ export class InfluencerCreateEdit extends OmniElement {
   }
 
   async handleSubmit() {
-    if (this.mode != "create"){
-      this.editTableData();
-    } else {
-      this.addTableData();
-    }
-   }
+    this.mode!= "create" ? this.editTableData() : this.addTableData();
+  }
 
    displayContent( value: string, titleDisplay: string) {
     return html` 
