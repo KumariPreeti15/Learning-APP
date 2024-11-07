@@ -43,8 +43,7 @@ export interface TableSort {
 }
 
 export interface TableConfig {
-  columns: TableColumn[];
-  sort: TableSort;
+  columns: TableColumn[]
 }
 
 export { Shopping_Columns};

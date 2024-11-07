@@ -68,17 +68,11 @@ export class ApplicationTable extends OmniElement {
     ];
   }
 
-  @state() config: TableConfig = { columns: [], sort: { key: 'id', dir: 'asc' } };
+  @state() config: TableConfig = { columns: []};
   @state() data: any = [];
   @state() totalCount: number;
   constructor() {
     super();
-  }
-
-  private updateSortColumn({ detail }: any) {
-    this.config.sort = detail;
-    const { dir, key } = this.config.sort;
-    this.dispatchNewEvent('sort-table', { detail: { key, order: dir } });
   }
 
   render() {
@@ -87,8 +81,7 @@ export class ApplicationTable extends OmniElement {
         <omni-table
           .columns="${this.config.columns}"
           .data="${this.data}"
-          .sort="${this.config.sort}"
-          @sort="${this.updateSortColumn}">
+          >
           ${this.totalCount
             ? html` <data-not-found .dataLoading=${this.totalCount}>
                 <p class="m-0">Data Not Found</p>

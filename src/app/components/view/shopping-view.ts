@@ -109,8 +109,7 @@ export class ShoppingView extends OmniElement {
   }
 
   @state() config: TableConfig = {
-    columns: [],
-    sort: { key: 'id', dir: 'asc' }
+    columns: []
   };
   @state() tableData: varietyList[] = [];
   selectedRowData: number = 0;
