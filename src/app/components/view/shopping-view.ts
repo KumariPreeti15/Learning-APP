@@ -194,8 +194,8 @@ getColumnDetails(data: TableColumn[]) {
             label: column.label,
             key: column.key,
             template: (_val: any, index:any) => html`
-                  <button class="button is-text" @click=${(e:any) => this.handleEditModal(index)}>Edit</button>
-                  <button class="button is-primary" @click=${(e:any)=>{this.handleDelete(index)}}>Delete</button>
+                  <button class="button is-text" @click=${(_e:any) => this.handleEditModal(index)}>Edit</button>
+                  <button class="button is-primary" @click=${(_e:any)=>{this.handleDelete(index)}}>Delete</button>
             `
           };
         default:

@@ -154,6 +154,14 @@ export class InfluencerCreateEdit extends OmniElement {
       this.addTableData();
     }
    }
+
+   displayContent( value: string, titleDisplay: string) {
+    return html` 
+       <label for="item">${titleDisplay.toUpperCase()}</label>
+        <input class="input" type="text" placeholder=${titleDisplay.toUpperCase()} 
+        .value="${value}" @keyup="${(e:any) => this._onChangeHandler(e, titleDisplay)}">
+      `;
+    }
    
   render() {
     return html`
@@ -167,27 +175,13 @@ export class InfluencerCreateEdit extends OmniElement {
               </p>
             </div>
             <form class="box" @submit=${this.handleSubmit} id="form">
-                <label for="item">Title</label>
-                <input class="input" type="text" placeholder="Title" 
-                .value="${this.titleName}" @keyup="${(e:any) => this._onChangeHandler(e, 'title')}" >
-                <label for="status">Category</label>
-                <input class="input" type="text" placeholder="Category"
-                .value="${this.categoryName}" @keyup="${(e:any) => this._onChangeHandler(e, 'category')}" >
-                <label for="type">Brand</label>
-                <input class="input" type="text" placeholder="Brand"
-                .value="${this.brandName}" @keyup="${(e:any) => this._onChangeHandler(e, 'brand')}" >
-                <label for="id">AvailabilityStatus</label>
-                <input class="input" type="text" placeholder="AvailabilityStatus"
-                .value="${this.availabilityStatus}" @keyup="${(e:any) => this._onChangeHandler(e, 'availabilityStatus')}" >
-                <label for="price">Stock</label>
-                <input class="input" type="text" placeholder="Stock"
-                .value="${this.stock}" @keyup="${(e:any) => this._onChangeHandler(e, 'stock')}" >
-                <label for="item">Price</label>
-                <input class="input" type="text" placeholder="Price" 
-                .value="${this.price}" @keyup="${(e:any) => this._onChangeHandler(e, 'price')}" >
-                <label for="item">ShippingInformation</label>
-                <input class="input" type="text" placeholder="ShippingInformation" 
-                .value="${this.shippingInformation}" @keyup="${(e:any) => this._onChangeHandler(e, 'shippingInformation')}" >
+                ${this.displayContent(this.titleName, 'title')}
+                ${this.displayContent(this.categoryName, 'category')}
+                ${this.displayContent(this.brandName, 'brand')}
+                ${this.displayContent(this.availabilityStatus, 'availabilityStatus')}
+                ${this.displayContent(String(this.stock), 'stock')}
+                ${this.displayContent(String(this.price), 'price')}
+                ${this.displayContent(this.shippingInformation, 'shippingInformation')}
                 <div class="columns mx-0 pt-4 pb-3 is-justify-content-flex-end">
                 <div class="column">
                   <div class="buttons are-medium is-right">
