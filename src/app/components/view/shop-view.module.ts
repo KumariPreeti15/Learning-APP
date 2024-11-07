@@ -35,13 +35,6 @@ const Shopping_Columns: TableColumn[] = [
   },
 ];
 
-type sortOrder = 'asc' | 'desc';
-
-export interface TableSort {
-  key: string;
-  dir: sortOrder;
-}
-
 export interface TableConfig {
   columns: TableColumn[]
 }
